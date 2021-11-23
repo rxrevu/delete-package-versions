@@ -26,7 +26,9 @@ function getActionInput(): Input {
 
 function run(): Observable<boolean> {
   try {
-    return deleteVersions(getActionInput()).pipe(
+    const actionInput = getActionInput()
+    console.debug("Action Input:", actionInput)
+    return deleteVersions(actionInput).pipe(
       catchError(err => throwError(err))
     )
   } catch (error) {
