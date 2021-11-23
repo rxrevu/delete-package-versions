@@ -28,6 +28,7 @@ function run(): Observable<boolean> {
   try {
     const actionInput = getActionInput()
     console.debug("Action Input:", actionInput)
+    console.debug("Github Action Context:", context)
     return deleteVersions(actionInput).pipe(
       catchError(err => throwError(err))
     )
