@@ -25,7 +25,9 @@ export function getVersionIds(input: Input): Observable<string[]> {
             ? []
             : versionInfo
                 .filter(info => !input.ignoreVersions.test(info.version))
-                .filter(info => input.deleteVersions?.test(info.version) ?? true)
+                .filter(
+                  info => input.deleteVersions?.test(info.version) ?? true
+                )
                 .map(info => info.id)
                 .slice(0, -input.minVersionsToKeep)
         } else {
@@ -33,7 +35,9 @@ export function getVersionIds(input: Input): Observable<string[]> {
             ? []
             : versionInfo
                 .filter(info => !input.ignoreVersions.test(info.version))
-                .filter(info => input.deleteVersions?.test(info.version) ?? true)
+                .filter(
+                  info => input.deleteVersions?.test(info.version) ?? true
+                )
                 .map(info => info.id)
                 .slice(0, numberVersionsToDelete)
         }
