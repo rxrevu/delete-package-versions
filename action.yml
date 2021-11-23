@@ -48,6 +48,12 @@ inputs:
     required: false
     default: "^$"
 
+  delete-versions:
+    description: >
+      Regex pattern for package versions to delete.
+      Defaults to null and is ignored.
+    required: false
+
   delete-only-pre-release-versions:
     description: >
       Deletes only pre-release versions upto. The number of pre-release versions to keep can be specified by min-versions-to-keep.
