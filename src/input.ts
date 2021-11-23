@@ -6,6 +6,7 @@ export interface InputParams {
   numOldVersionsToDelete?: number
   minVersionsToKeep?: number
   ignoreVersions?: RegExp
+  deleteVersions?: RegExp | null
   token?: string
   deletePreReleaseVersions?: string
 }
@@ -18,6 +19,7 @@ const defaultParams = {
   numOldVersionsToDelete: 0,
   minVersionsToKeep: 0,
   ignoreVersions: new RegExp(''),
+  deleteVersions: null,
   deletePreReleaseVersions: '',
   token: ''
 }
@@ -30,6 +32,7 @@ export class Input {
   numOldVersionsToDelete: number
   minVersionsToKeep: number
   ignoreVersions: RegExp
+  deleteVersions?: RegExp | null
   deletePreReleaseVersions: string
   token: string
 
@@ -43,6 +46,7 @@ export class Input {
     this.numOldVersionsToDelete = validatedParams.numOldVersionsToDelete
     this.minVersionsToKeep = validatedParams.minVersionsToKeep
     this.ignoreVersions = validatedParams.ignoreVersions
+    this.deleteVersions = validatedParams.deleteVersions
     this.deletePreReleaseVersions = validatedParams.deletePreReleaseVersions
     this.token = validatedParams.token
 
